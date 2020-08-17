@@ -117,6 +117,11 @@ class SortingRobot:
                 # can no longer move right
                 self.swap_item()
                 self._position = 0
+                """
+                code for this is 
+                while self.can_move_left():
+                    self.move_left()
+                """
                 search_space -= 1
 
         # we get here when search space == 0
