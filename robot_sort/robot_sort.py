@@ -97,9 +97,35 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        # this is bubble sort or at least the one I feel like implementing
+        # robot will grab first item
+        # move right continously until it encounters a bigger number
+        # swap if bigger
+        # when we hit the end of the list we reduce search space
 
+        search_space = len(self._list)
+        while search_space > 0:
+            if self._position < search_space and self.can_move_right():
+                if self._item is None:
+                    self.swap_item()
+                self.move_right()
+                if self.compare_item() == 1:
+                    continue
+                else:
+                    self.swap_item()
+            else:
+                # can no longer move right
+                self.swap_item()
+                self._position = 0
+                """
+                code for this is 
+                while self.can_move_left():
+                    self.move_left()
+                """
+                search_space -= 1
 
+        # we get here when search space == 0
+        self.swap_item()
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
